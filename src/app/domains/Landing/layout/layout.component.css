@@ -1,0 +1,7 @@
+#bg-custom {
+    width: 100%;
+    background-image: url("../../../../assets/fronton-1.jpg");
+    background-size: cover;
+    background-position: center top;
+    border-radius: 10px;
+}
