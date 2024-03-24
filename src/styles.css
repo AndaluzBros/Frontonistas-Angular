@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary-color: #006795;/*#082032;*/
+    --secondary-color: #fad000;
+    color-scheme: light;
+}
+
+* {
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: 1300px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.bg-primary{
+    background-color: var(--primary-color);
+}

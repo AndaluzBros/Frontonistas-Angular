@@ -1,1 +1,95 @@
-<p>register works!</p>
+<landing-form-container title="Nuevo Registro">
+    <form class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="first_name" class="block mb-2 text-md font-bold text-gray-900">Nombres:</label>
+            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div> 
+        <div>
+            <label for="last_name" class="block mb-2 text-md font-bold text-gray-900">Apellidos:</label>
+            <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div> 
+        <div>
+            <label for="nickname" class="block mb-2 text-md font-bold text-gray-900">Sobrenombre (Alias):</label>
+            <input type="text" id="nickname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Opcional)" />
+        </div> 
+        <div class="flex flex-col items-start justify-center mb-4">
+            <label for="genre" class="block mb-2 text-md font-bold text-gray-900">G&eacute;nero:</label>
+            <div class="flex items-center">
+                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-radio-1" class="ms-1 text-md font-semibold text-black me-5">Masc.</label>
+                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-radio-1" class="ms-1 text-md font-semibold text-black">Fem.</label>
+            </div>
+        </div>
+        <div>
+            <label for="email" class="block mb-2 text-md font-bold text-gray-900">Email:</label>
+            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Correo de contacto)" required/>
+        </div> 
+        <div>
+            <label for="phone" class="block mb-2 text-md font-bold">N&uacute;mero de Telefono:</label>
+            <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="[0-9]" placeholder="(Obligatorio)" required />
+        </div>
+        <div>
+            <label for="password" class="block mb-2 text-md font-bold">Contraseña:</label>
+            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="[0-9]" placeholder="(Para este sitio)" required />
+        </div>
+        <div>
+            <label for="password" class="block mb-2 text-md font-bold">Confirmar contraseña:</label>
+            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div>
+        <div>
+            <label for="countries" class="block mb-2 text-md font-bold text-gray-900">Nivel Deportivo Actual:</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option selected hidden>Seleccionar nivel</option>
+                <option value="0">Principiante</option>
+                <option value="1">Intermedio</option>
+                <option value="2">Bueno</option>
+                <option value="3">Muy Bueno</option>
+                <option value="4">Top</option>
+            </select>
+        </div>
+        <div>
+            <label for="password" class="block mb-2 text-md font-bold">Lugar de Residencia (solo uno):</label>
+            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ejm: Pueblo Libre" required />
+        </div>
+        <div>
+            <label for="user-birthday" class="block mb-2 text-md font-bold">Fecha de Nacimiento:</label>
+            <div class="relative max-w-sm">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                  </svg>
+                </div>
+                <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" id="user-birthday">
+            </div>
+        </div>
+        <div class="pb-8 md:row-start-6 md:row-end-8 md:col-start-2">
+            <label for="occupation" class="block mb-2 text-md font-bold">Profesi&oacute;n u ocupaci&oacute;n:</label>
+            <textarea type="text" id="occupation" class="h-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Opcional)"></textarea>
+        </div>
+        <div>   
+            <label for="club" class="block mb-2 text-md font-bold">Club / Cancha / Complejo Deportivo:</label>
+            <input type="text" id="club" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Donde mas juegas (solo uno)" required />
+        </div>
+        <div>
+            <label class="block mb-2 text-md font-bold" for="small_size">Ingrese una foto 1:</label>
+            <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="small_size" type="file">
+        </div>
+        <div>
+            <label class="block mb-2 text-md font-bold" for="small_size">Ingrese una foto 2:</label>
+            <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="small_size" type="file">
+        </div>
+        <div class="flex justify-center md:justify-start">
+            <a routerLink="/">
+                <button type="button" class="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-0">
+                    ← Regresar
+                </button>
+            </a>
+        </div>
+        <div class="flex justify-center md:justify-end">
+            <button type="button" class="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-0">
+                Registrarse
+            </button>
+        </div>
+    </form>
+</landing-form-container>
