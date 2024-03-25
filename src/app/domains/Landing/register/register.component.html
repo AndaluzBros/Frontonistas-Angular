@@ -6,11 +6,11 @@
         </div> 
         <div>
             <label for="last_name" class="block mb-2 text-md font-bold text-gray-900">Apellidos:</label>
-            <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+            <input formControlName="lastName" type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div> 
         <div>
             <label for="nickname" class="block mb-2 text-md font-bold text-gray-900">Sobrenombre (Alias):</label>
-            <input type="text" id="nickname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Opcional)" />
+            <input formControlName="nickname" type="text" id="nickname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Opcional)" />
         </div> 
         <div class="flex flex-col items-start justify-center mb-4">
             <label for="genre" class="block mb-2 text-md font-bold text-gray-900">G&eacute;nero:</label>
@@ -23,34 +23,34 @@
         </div>
         <div>
             <label for="email" class="block mb-2 text-md font-bold text-gray-900">Email:</label>
-            <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Correo de contacto)" required/>
+            <input formControlName="email" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Correo de contacto)" required/>
         </div> 
         <div>
             <label for="phone" class="block mb-2 text-md font-bold">N&uacute;mero de Telefono:</label>
-            <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="[0-9]" placeholder="(Obligatorio)" required />
+            <input formControlName="phone" type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Obligatorio)" required />
         </div>
         <div>
             <label for="password" class="block mb-2 text-md font-bold">Contraseña:</label>
-            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="[0-9]" placeholder="(Para este sitio)" required />
+            <input formControlName="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Para este sitio)" required />
         </div>
         <div>
             <label for="confirm_password" class="block mb-2 text-md font-bold">Confirmar contraseña:</label>
-            <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+            <input formControlName="confirmPassword" type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
         <div>
             <label for="countries" class="block mb-2 text-md font-bold text-gray-900">Nivel Deportivo Actual:</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            <select formControlName="level" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <option selected hidden>Seleccionar nivel</option>
-                <option value="0">Principiante</option>
-                <option value="1">Intermedio</option>
-                <option value="2">Bueno</option>
-                <option value="3">Muy Bueno</option>
-                <option value="4">Top</option>
+                @for (level of levels; track $index) {
+                    <option [value]="$index">
+                        {{ level }}
+                    </option>
+                }
             </select>
         </div>
         <div>
             <label for="country" class="block mb-2 text-md font-bold">Lugar de Residencia (solo uno):</label>
-            <input type="text" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ejm: Pueblo Libre" required />
+            <input formControlName="city" type="text" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ejm: Pueblo Libre" required />
         </div>
         <div>
             <label for="user-birthday" class="block mb-2 text-md font-bold">Fecha de Nacimiento:</label>
@@ -60,16 +60,16 @@
                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                   </svg>
                 </div>
-                <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" id="user-birthday">
+                <input formControlName="birthday" datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" id="user-birthday">
             </div>
         </div>
         <div class="pb-8 md:row-start-6 md:row-end-8 md:col-start-2">
             <label for="occupation" class="block mb-2 text-md font-bold">Profesi&oacute;n u ocupaci&oacute;n:</label>
-            <textarea type="text" id="occupation" class="h-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Opcional)"></textarea>
+            <textarea formControlName="occupation" type="text" id="occupation" class="h-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="(Opcional)"></textarea>
         </div>
         <div>   
             <label for="club" class="block mb-2 text-md font-bold">Club / Cancha / Complejo Deportivo:</label>
-            <input type="text" id="club" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Donde mas juegas (solo uno)" required />
+            <input formControlName="club" type="text" id="club" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Donde mas juegas (solo uno)" required />
         </div>
         <div>
             <label class="block mb-2 text-md font-bold">Ingrese una foto 1:</label>
@@ -87,7 +87,7 @@
             </a>
         </div>
         <div class="flex justify-center md:justify-end">
-            <button [disabled]="userForm.status == 'INVALID'" type="submit" (click)="onSubmit()" class="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-0">
+            <button type="submit" (click)="onSubmit()" class="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-0">
                 Registrarse
             </button>
         </div>
