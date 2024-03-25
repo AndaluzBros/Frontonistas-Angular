@@ -1,8 +1,8 @@
 <landing-form-container title="Nuevo Registro">
-    <form class="grid gap-6 mb-6 md:grid-cols-2">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
             <label for="first_name" class="block mb-2 text-md font-bold text-gray-900">Nombres:</label>
-            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+            <input formControlName="firstName" type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div> 
         <div>
             <label for="last_name" class="block mb-2 text-md font-bold text-gray-900">Apellidos:</label>
@@ -17,8 +17,8 @@
             <div class="flex items-center">
                 <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="default-radio-1" class="ms-1 text-md font-semibold text-black me-5">Masc.</label>
-                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="default-radio-1" class="ms-1 text-md font-semibold text-black">Fem.</label>
+                <input id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-radio-2" class="ms-1 text-md font-semibold text-black">Fem.</label>
             </div>
         </div>
         <div>
@@ -34,8 +34,8 @@
             <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" pattern="[0-9]" placeholder="(Para este sitio)" required />
         </div>
         <div>
-            <label for="password" class="block mb-2 text-md font-bold">Confirmar contraseña:</label>
-            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+            <label for="confirm_password" class="block mb-2 text-md font-bold">Confirmar contraseña:</label>
+            <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
         </div>
         <div>
             <label for="countries" class="block mb-2 text-md font-bold text-gray-900">Nivel Deportivo Actual:</label>
@@ -49,8 +49,8 @@
             </select>
         </div>
         <div>
-            <label for="password" class="block mb-2 text-md font-bold">Lugar de Residencia (solo uno):</label>
-            <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ejm: Pueblo Libre" required />
+            <label for="country" class="block mb-2 text-md font-bold">Lugar de Residencia (solo uno):</label>
+            <input type="text" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ejm: Pueblo Libre" required />
         </div>
         <div>
             <label for="user-birthday" class="block mb-2 text-md font-bold">Fecha de Nacimiento:</label>
@@ -72,12 +72,12 @@
             <input type="text" id="club" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Donde mas juegas (solo uno)" required />
         </div>
         <div>
-            <label class="block mb-2 text-md font-bold" for="small_size">Ingrese una foto 1:</label>
-            <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="small_size" type="file">
+            <label class="block mb-2 text-md font-bold">Ingrese una foto 1:</label>
+            <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="image1" type="file">
         </div>
         <div>
-            <label class="block mb-2 text-md font-bold" for="small_size">Ingrese una foto 2:</label>
-            <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="small_size" type="file">
+            <label class="block mb-2 text-md font-bold">Ingrese una foto 2:</label>
+            <input class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="image2" type="file">
         </div>
         <div class="flex justify-center md:justify-start">
             <a routerLink="/">
@@ -87,7 +87,7 @@
             </a>
         </div>
         <div class="flex justify-center md:justify-end">
-            <button type="button" class="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-0">
+            <button [disabled]="userForm.status == 'INVALID'" type="submit" (click)="onSubmit()" class="text-white bg-primary focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-0">
                 Registrarse
             </button>
         </div>

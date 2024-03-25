@@ -1,0 +1,88 @@
+<div class="flex flex-wrap py-5 w-full justify-center">
+    <div class="images-container">
+        <div>
+            <img [src]="user?.image1" alt="">
+        </div>
+        <div>
+            <img [src]="user?.image2" alt="">
+        </div>
+    </div>
+    <div class="flex-grow flex-1">
+        <div class="flex items-end mb-2">
+            <h1 class="text-3xl font-bold mb-0">
+                {{user?.name}} {{user?.lastName}}
+            </h1>
+            <p class="mb-1 ms-3">({{user?.nickname}})</p>
+        </div>
+    
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-base text-left rtl:text-right text-black">
+                <tbody>
+                    <tr class="bg-gray-100 border-b-2 border-white">
+                        <th scope="row" class="px-6 py-2 font-bold bg-gray-200">
+                            Sexo / Año Nac.
+                        </th>
+                        <td class="px-6 py-2">
+                            {{user?.genre}} / {{user?.birth?.getFullYear()}}
+                        </td>
+                        <td class="px-6 py-2 font-bold bg-gray-200">
+                            Categoría Referencial
+                        </td>
+                        <td class="px-6 py-2">
+                            {{user?.category}}
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-100 border-b-2 border-white">
+                        <th scope="row" class="px-6 py-2 bg-gray-200">
+                            Residencia / Club
+                        </th>
+                        <td class="px-6 py-2" colspan="3">
+                            <div class=" flex justify-between">
+                                <p>
+                                    {{user?.address}}
+                                </p>
+                                <p>/</p>
+                                <p>
+                                    {{user?.club}}
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-100 border-b-2 border-white">
+                        <th scope="row" class="px-6 py-2 bg-gray-200">
+                            Nivel actual <br> <b>en el que te consideras:</b>
+                        </th>
+                        <td class="px-6 py-2" colspan="3">
+                            {{user?.level}}
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-100 border-b-2 border-white">
+                        <th scope="row" class="px-6 py-2 font-bold bg-gray-200">
+                            Correo / Telefonos
+                        </th>
+                        <td class="px-6 py-2" colspan="3">
+                            <div class="flex justify-between">
+                                <p>
+                                    {{user?.email}}
+                                </p>
+                                <p>/</p>
+                                <p>
+                                    {{user?.phone}}
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-100 border-b-2 border-white">
+                        <th scope="row" class="px-6 py-2 font-bold bg-gray-200">
+                            Profesion / Ocupación
+                        </th>
+                        <td class="px-6 py-2" colspan="3">
+                            {{user?.occupation}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

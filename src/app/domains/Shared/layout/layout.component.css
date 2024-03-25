@@ -1,0 +1,39 @@
+header {
+    min-height: 400px;
+    background-image: url("../../../../assets/fondo-top.jpg");
+    background-position: center center;
+    background-size: cover;
+}
+
+.filter-level{
+    list-style-type: none;
+}
+
+.filter-level li{
+    padding: 10px   15px;
+    text-align: center;
+    flex-grow: 1;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    transition-duration: .3s;
+    font-size: 14px;
+}
+
+.filter-level li:hover{
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.filter-level li::before{
+    content: ": : ";
+}
+
+.filter-level li:last-child{
+    border-right: 1px solid transparent;
+}
+
+@media screen and (min-width: 600px) {
+    .filter-level li{
+        border-bottom: none;
+    }
+}
